@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1614450593 source:d:\c++\jocuri\de mine\x si 0\tictactoe2.0\main.cpp
+	<cstdlib>
+	<ctime>
+	<iostream>
+	<iomanip>
+	<fstream>
+	<windows.h>
+

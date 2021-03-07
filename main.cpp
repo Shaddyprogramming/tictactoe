@@ -4,13 +4,42 @@
 #include <iomanip>
 #include <fstream>
 #include <windows.h>
+std::ofstream gout("lastmatch.txt");
 using namespace std;
+void table(char a[3][3])
+{
+    cout<<"     |     |     "<<endl;
+    cout<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
+    cout<<"_____|_____|_____"<<endl;
+    cout<<"     |     |     "<<endl;
+    cout<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
+    cout<<"_____|_____|_____"<<endl;
+    cout<<"     |     |     "<<endl;
+    cout<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl<<endl;
+}
+void match(char a[3][3])
+{
+    gout<<"     |     |     "<<endl;
+    gout<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
+    gout<<"_____|_____|_____"<<endl;
+    gout<<"     |     |     "<<endl;
+    gout<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
+    gout<<"_____|_____|_____"<<endl;
+    gout<<"     |     |     "<<endl;
+    gout<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl<<endl;
+}
+void draw(char a[3][3])
+{
+    cout<<endl<<"Draw !"<<endl<<endl;
+    gout<<endl<<"Draw !"<<endl<<endl;
+    table(a);
+    match(a);
+}
 int main()
 {
     int inc=1,victx=0,victo=0,dif=0,sanse,ex;
     char a[3][3];
     srand((unsigned)time(0));
-    ofstream g("lastmatch.txt");
     cout<<"Welcome to tic tac toe!!!"<<endl;
     cout<<endl;
     a[0][0]='1';
@@ -22,16 +51,10 @@ int main()
     a[2][0]='7';
     a[2][1]='8';
     a[2][2]='9';
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl;
+    table(a);
+    match(a);
     int mod=0;
-    cout<<endl<<"What mod dou you want to play ?"<<endl;
+    cout<<endl<<"What mod do you want to play ?"<<endl;
     cout<<"1.Player vs Player"<<endl;
     cout<<"2.Player vs Bot"<<endl;
     cout<<"3.Bot vs Bot"<<endl;
@@ -64,14 +87,8 @@ int main()
         cout<<"0 !!!"<<endl;
     }
     system("cls");
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl<<endl;
+    table(a);
+    match(a);
         cout<<"Choosed :";
         cout<<endl<<endl;
         int pas=0;
@@ -106,12 +123,12 @@ int main()
         if(mod==3)
         {
         cout<<pas<<".X(Bot) is the next"<<endl;
-        g<<pas<<".X(Bot) is the next"<<endl<<endl;
+        gout<<pas<<".X(Bot) is the next"<<endl<<endl;
         }
         else
         {
         cout<<pas<<".X(Player) is the next"<<endl<<endl;
-        g<<pas<<".X(Player) is the next"<<endl<<endl;
+        gout<<pas<<".X(Player) is the next"<<endl<<endl;
         }
     while (v1==a[0][0] && v2==a[0][1] && v3==a[0][2] && v4==a[1][0] && v5==a[1][1] && v6==a[1][2] && v7==a[2][0] && v8==a[2][1] && v9==a[2][2])
         {
@@ -157,51 +174,23 @@ if(victx==1)
     if(mod==3)
     {
     cout<<endl<<"X(Bot) won !"<<endl<<endl;
-    g<<endl<<"X(Bot) won !"<<endl<<endl;
+    gout<<endl<<"X(Bot) won !"<<endl<<endl;
     }
     else
     {
     cout<<endl<<"X(player) won !"<<endl<<endl;
-    g<<endl<<"X(player) won !"<<endl<<endl;
+    gout<<endl<<"X(player) won !"<<endl<<endl;
     }
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl;
+    table(a);
+    match(a);
     return 0;
 }
     if(v1==a[0][0] && v2==a[0][1] && v3==a[0][2] && v4==a[1][0] && v5==a[1][1] && v6==a[1][2] && v7==a[2][0] && v8==a[2][1] && v9==a[2][2])
         cout<<"Wrong position !"<<endl;
         }
     system("cls");
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl;
+    table(a);
+    match(a);
         if((a[0][0]=='X' && a[0][1]=='X' && a[0][2]=='X') || (a[1][0]=='X' && a[1][1]=='X' && a[1][2]=='X') || (a[2][0]=='X' && a[2][1]=='X' && a[2][2]=='X') || (a[0][0]=='X' && a[1][0]=='X' && a[2][0]=='X') || (a[0][1]=='X' && a[1][1]=='X' && a[2][1]=='X') || (a[2][0]=='X' && a[2][1]=='X' && a[2][2]=='X') || (a[0][0]=='X' && a[1][1]=='X' && a[2][2]=='X') || (a[0][2]=='X' && a[1][1]=='X' && a[2][0]=='X') || (a[0][2]=='X' && a[1][2]=='X' && a[2][2]=='X'))
             victx=1;
 if(victx==1)
@@ -209,51 +198,20 @@ if(victx==1)
     if(mod==3)
     {
     cout<<endl<<"X(bot) won !"<<endl<<endl;
-    g<<endl<<"X(bot) won !"<<endl<<endl;
+    gout<<endl<<"X(bot) won !"<<endl<<endl;
     }
     else
     {
     cout<<endl<<"X(player) won !"<<endl<<endl;
-    g<<endl<<"X(player) won !"<<endl<<endl;
+    gout<<endl<<"X(player) won !"<<endl<<endl;
     }
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl;
+    table(a);
+    match(a);
     return 0;
 }
 if(pas==9)
 {
-    cout<<endl<<"Draw !"<<endl<<endl;
-    g<<endl<<"Draw !"<<endl<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl;
+    draw(a);
     return 0;
 }
         pas++;
@@ -262,12 +220,12 @@ if(pas==9)
         if(mod==1)
         {
         cout<<pas<<".0(player) is the next"<<endl<<endl;
-        g<<pas<<".0(player) is the next"<<endl<<endl;
+        gout<<pas<<".0(player) is the next"<<endl<<endl;
         }
         else
         {
         cout<<".0(Bot) is the next"<<endl<<endl;
-        g<<pas<<".Urmeaza 0(Calculator)"<<endl<<endl;
+        gout<<pas<<".Urmeaza 0(Calculator)"<<endl<<endl;
         }
         v1=a[0][0];
         v2=a[0][1];
@@ -425,22 +383,8 @@ if(pas==9)
         a[2][2]='0';
         }
     system("cls");
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl;
+    table(a);
+    match(a);
         if((a[0][0]=='0' && a[0][1]=='0' && a[0][2]=='0') || (a[1][0]=='0' && a[1][1]=='0' && a[1][2]=='0') || (a[2][0]=='0' && a[2][1]=='0' && a[2][2]=='0') || (a[0][0]=='0' && a[1][0]=='0' && a[2][0]=='0') || (a[0][1]=='0' && a[1][1]=='0' && a[2][1]=='0') || (a[2][0]=='0' && a[2][1]=='0' && a[2][2]=='0') || (a[0][0]=='0' && a[1][1]=='0' && a[2][2]=='0') || (a[0][2]=='0' && a[1][1]=='0' && a[2][0]=='0') || (a[0][2]=='0' && a[1][2]=='0' && a[2][2]=='0'))
             victo=1;
 if(victo==1)
@@ -448,52 +392,21 @@ if(victo==1)
     if(mod==1)
     {
     cout<<endl<<"0(player) won !"<<endl<<endl;
-    g<<endl<<"0(player) won !"<<endl<<endl;
+    gout<<endl<<"0(player) won !"<<endl<<endl;
     }
     else
     {
     cout<<endl<<"0(bot) won !"<<endl<<endl;
-    g<<endl<<"0(bot) won !"<<endl<<endl;
+    gout<<endl<<"0(bot) won !"<<endl<<endl;
     }
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl;
+    table(a);
+    match(a);
     return 0;
 }
  if(pas==9)
-{
-    cout<<endl<<"Draw !"<<endl<<endl;
-    g<<endl<<"Draw !"<<endl<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    cout<<"_____|_____|_____"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[0][0]<<"  |  "<<a[0][1]<<"  |  "<<a[0][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[1][0]<<"  |  "<<a[1][1]<<"  |  "<<a[1][2]<<endl;
-    g<<"_____|_____|_____"<<endl;
-    g<<"     |     |     "<<endl;
-    g<<"  "<<a[2][0]<<"  |  "<<a[2][1]<<"  |  "<<a[2][2]<<endl;
+ {
+    draw(a);
     return 0;
-}
+ }
     }
 }
